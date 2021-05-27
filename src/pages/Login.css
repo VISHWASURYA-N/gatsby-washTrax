@@ -1,0 +1,105 @@
+*{
+    padding:0px;
+    margin:0px;
+    box-sizing: border-box;
+}
+.login_section{
+    width:100%;
+    height:100vh;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+.login_container{
+    width:40%;
+    height:70vh;
+    background:#ffffff;
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+}
+.login_head h3{
+    text-align: center;
+    text-transform: capitalize;
+    color:#333333;
+    font-family: Helvetica,Neue;
+    font-size: 30dp;
+    font-weight: bold;
+}
+.login_form {
+    width:60%;
+    height:30vh;
+}
+.login_form form{
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+}
+.login_user,
+.login_password{
+    padding:0px 100px 5px 0px;
+    border-top:none;
+    border-right:none;
+    border-left:none;
+    border-bottom:.31vh solid #CCCCCC;
+    outline:0;
+    text-transform: capitalize;
+    color:#707070;
+    font-family:  Helvetica;
+    font-weight: normal;
+    font-size: .9rem;
+}
+.login_submit{
+    padding:8px 110px;
+    border:none;
+    outline: 0;
+    border-radius: 5px;
+    background:linear-gradient(#38B5FF,#477EF7);
+    color:#ffffff;
+    font-family: Helvetica;
+    font-weight: medium;
+    text-transform: uppercase;
+    font-size:.8rem;
+    cursor: pointer;
+}
+.login_form form h3{
+    text-align: center;
+    margin-top: -10px;
+    color:#38B5FF;
+    font-family: Helvetica;
+    font-weight: lighter;
+    font-size:.8rem;
+    cursor: pointer;
+}
+.login_logo{
+    text-align: center;
+}
+.login_logo p{
+    padding-bottom:15px;
+    color:#707070;
+    font-family:  Helvetica;
+    font-weight: normal;
+    font-size: .8rem;
+}
+.login_logo img{
+    width:180px;
+    height:90px;
+    object-fit: contain;
+    margin-bottom: 0px !important;
+    object-position: center;
+}
+
+/*media query*/
+@media screen and (max-width: 1000px) {
+.login_container{
+        width:100%;
+}
+}

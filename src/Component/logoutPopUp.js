@@ -1,32 +1,48 @@
-import React, { useState } from 'react';
-import { Modal, Button } from 'antd';
-import { navigate } from 'gatsby-link';
-
-  const Popup= () => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
-
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
-
-  const handleOk = () => {
-    setIsModalVisible(false);
+import React, { useState } from "react"
+import {Button } from "antd"
+import { navigate } from "gatsby"
+import { UserOutlined } from "@ant-design/icons"
+export const NavProfile = ({ setShow }) => {
+  function signOut() {
     navigate("/")
-  };
-
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
+  }
 
   return (
-    <>
-      <Button type="primary" onClick={showModal}>
-        logout
-      </Button>
-      <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-      <h2>to logout click on OK...</h2>
-      </Modal>
-    </>
-  );
-};
-export default Popup
+    <div
+      className="card"
+      style={{
+        position: "absolute",
+        top: "70px",
+        right: "50px",
+        width: "150px",
+        marginTop: "5px",
+      }}
+    >
+      <div className="card-title">
+        <div
+          onClick={() => {
+            setShow(false)
+          }}
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "flex-start",
+          }}
+        >
+          <span>{<UserOutlined style={{ fontSize: 30, marginTop: 6 }} />}</span>
+          <span>
+            <span>BuzzWash</span>
+            <p className="text-muted">Alex Brown</p>
+          </span>
+        </div>
+      </div>
+      <div className="card-block">
+        <Button onClick={signOut} block type="danger">
+          sign out
+        </Button>
+      </div>
+    </div>
+  )
+}
+
+export default NavProfile

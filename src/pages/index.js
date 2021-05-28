@@ -48,7 +48,7 @@ export default function SignIn() {
 
   const onFinish = values => {
     console.log("Success:", values)
-    if (values.username.length > 5 && values.password.length > 6) {
+    if (values.password.length >= 6) {
       navigate('/home')
       setError(false)
     } else {
@@ -84,9 +84,11 @@ export default function SignIn() {
               justifyContent: "center",
               alignItems: "center",
               margin: "10px auto",
-              height: "90%",
-              flexBasis: "25%",
-              borderRadius: "20px",
+              height: "95%",
+              flexBasis: "29%",
+              borderRadius: "10px",
+              
+              
             }}
           >
             <div
@@ -111,7 +113,7 @@ export default function SignIn() {
               ))}
               {error && (
                 <p style={{ color: "red", padding: "2px" }}>
-                  username should be 5 characters and password should be 6
+                password should be minimum 6
                   characters long
                 </p>
               )}

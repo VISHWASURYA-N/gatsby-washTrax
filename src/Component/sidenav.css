@@ -15,7 +15,7 @@
   }
   
   .nav-menu {
-    background-color:#f8f9fa;
+    background-color:white;
     width: 250px;
     list-style: none;
     height: 100vh;
@@ -58,7 +58,7 @@
   }
   
   .nav-text a:hover {
-    background-color:#f8f9fa;
+    background-color:white;
     color:skyblue;
   }
   

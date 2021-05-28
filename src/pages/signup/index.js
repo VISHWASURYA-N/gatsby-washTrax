@@ -13,17 +13,30 @@ let form_data = [
     name: "username",
     type: "text",
     className: "form-control",
-    placeholder: "enter ur email id",
+    placeholder: "enter ur  user_id",
     rules: [
       {
         required: true,
-        message: "Please input your username",
+        message: "Please input your user_id",
       },
     ],
   },
   {
     label: "PASSWORD",
     name: "password",
+    type: "password",
+    placeholder: "enter confirm password",
+    className: "form-control",
+    rules: [
+      {
+        required: true,
+        message: "Please input your password",
+      },
+    ],
+  },
+  {
+    label: "CONFIRM PASSWORD",
+    name: "confirm_password",
     type: "password",
     placeholder: "enter user password",
     className: "form-control",
@@ -42,19 +55,13 @@ let form_data = [
 ]
 
 export default function SigUp() {
-  const layout = {
-    labelCol: { span: 8 },
-    wrapperCol: { span: 16 },
-  }
-  const tailLayout = {
-    wrapperCol: { offset: 8, span: 16 },
-  }
+  
   const [error, setError] = useState(false)
 
   const onFinish = values => {
     console.log("Success:", values)
-    if (values.username.length > 5 && values.password.length > 6) {
-      navigate("/")
+    if (values.password.length >= 6 && values.password===values.confirm_password ){
+      navigate("/home")
       setError(false)
     } else {
       setError(true)
@@ -89,10 +96,10 @@ export default function SigUp() {
               justifyContent: "center",
               alignItems: "center",
               margin: "10px auto",
-              height: "90%",
-              flexBasis: "25%",
-              borderRadius: "20px",
-            }}
+              height: "95%",
+              flexBasis: "29%",
+              borderRadius: "10px",
+              }}
           >
             <div
               style={{
@@ -116,8 +123,7 @@ export default function SigUp() {
               ))}
               {error && (
                 <p style={{ color: "red", padding: "2px" }}>
-                  username should be 5 characters and password should be 6
-                  characters long
+                password and confirm password should match
                 </p>
               )}
 

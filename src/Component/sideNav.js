@@ -32,10 +32,10 @@ class Navbar extends React.Component {
           mode="inline"
           theme="light"
           inlineCollapsed={this.state.collapsed}
-          style={{height:"100vh",marginTop:"15px"}}
+          style={{height:"100vh",marginTop:"11px"}}
         >
           {sidenav.map((nav,index)=>(
-          <Menu.Item key={index.toString()} icon={nav.icon}>
+          <Menu.Item key={index.toString()} icon={nav.icon} >
           {nav.name}
          </Menu.Item>
 

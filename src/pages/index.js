@@ -1,20 +1,22 @@
 import React, { useState } from "react"
 import InputForm from "../Component/form"
-import { Card } from "antd"
+import { Card,  Container } from "react-bootstrap"
 import logo from "../assets/logo_1.png"
 import background from "../assets/img-17.jpg"
 import "./layout.css"
+import "./Login.css"
 import "./index.css"
 import { Form } from "antd"
 import { navigate } from "gatsby-link"
 import { Link } from "gatsby"
+import "bootstrap/dist/css/bootstrap.css"
 
 let form_data = [
   {
     label: "USER ID",
     name: "username",
     type: "text",
-    className: "form-control",
+    className:"ant-form-item-required",
     placeholder: "enter user username",
     rules: [
       {
@@ -28,7 +30,7 @@ let form_data = [
     name: "password",
     type: "password",
     placeholder: "enter user password",
-    className: "form-control",
+    className:"ant-form-item-required",
     rules: [
       {
         required: true,
@@ -59,6 +61,10 @@ export default function SignIn() {
   const onFinishFailed = errorInfo => {
     console.log("Failed:", errorInfo)
   }
+  const initialCredential = {
+		username: '',
+		password: ''
+	}
   const backgroundStyle = {
     backgroundImage: `url(${background})`,
     backgroundRepeat: "no-repeat",
@@ -68,38 +74,13 @@ export default function SignIn() {
   }
 
   return (
-    <div className="auth-container ">
+   <div className="auth-container ">
       <div style={backgroundStyle}>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "100%",
-          }}
-        >
-          <Card
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              margin: "10px auto",
-              height: "95%",
-              flexBasis: "29%",
-              borderRadius: "10px",
-              
-              
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                marginBottom: "20px",
-              }}
-              className="login_logo"
-            >
+      <Container className="d-flex align-items-center justify-content-center"
+    style={{ minHeight: "100vh" }}>
+       <div  style={{ maxWidth: "400px" }}>
+          <Card className="p-4" style={{borderRadius:"10PX"}}>
+           <div className="login_logo">
               <img src={logo} alt="logo" width="180px" height="90px" />
             </div>
             <Form
@@ -129,82 +110,12 @@ export default function SignIn() {
               </p>
             </Form>
           </Card>
+          </div>
+          </Container>
         </div>
       </div>
-    </div>
+    
+  
   )
 }
 
-// import React, { useState } from 'react';
-// import { Link } from 'gatsby';
-// import '../Component/sidenav.css';
-// import {MenuFoldOutlined} from '@ant-design/icons';
-
-// import {
-//   DashboardOutlined,
-//   DotChartOutlined,
-//   GitlabOutlined,
-//   FileTextOutlined,
-//   MergeCellsOutlined,
-//   DeliveredProcedureOutlined,
-//   TeamOutlined,
-//   FundOutlined,
-//   QuestionCircleOutlined,
-//   CloseCircleOutlined
-// } from "@ant-design/icons"
-
- 
-
-
-
-// function Navbar() {
-//   const sidenav=[
-//     {name:"DASHBOARD", icon:<DashboardOutlined />,className:"nav-text" ,path: '/dashbord',},
-//     {name:"MY YARD", icon:<DotChartOutlined />,className:"nav-text" ,path: '/myyard'},
-//     {name:"ATTENSION NEEDED", icon:<GitlabOutlined />,className:"nav-text" ,path: '/attension'},
-//     {name: "ON YARD REPORT", icon:<FileTextOutlined />,className:"nav-text" ,path: '/onyardreport'},
-//     {name: "PO MASTER", icon:<MergeCellsOutlined />,className:"nav-text" ,path: '/pomaster'},
-//     {name:"SERVICE MASTER", icon:<FileTextOutlined />,className:"nav-text" ,path: '/servicemaster'},
-//     {name:"CUSTOMER", icon:< DeliveredProcedureOutlined/> ,className:"nav-text" ,path: '/customer'},
-//     {name:"YARD USER", icon:<TeamOutlined /> ,className:"nav-text",path: '/yarduser'},
-//     {name:"YARD LOCATION", icon:<FundOutlined /> ,className:"nav-text",path: '/yardlocation'},
-//     {name:"HELP", icon:<QuestionCircleOutlined /> ,className:"nav-text",path: '/help'},
-//   ]
-//   const [sidebar, setSidebar] = useState(false);
-
-//   const showSidebar = () => setSidebar(!sidebar);
-
-//   return (
-//     <>
-     
-//         <div className='navbar'>
-//           <Link to='#' className='menu-bars'>
-//              <MenuFoldOutlined  onClick={showSidebar} />
-//           </Link>
-//         </div>
-//         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
-//           <ul className='nav-menu-items' onClick={showSidebar}>
-//             <li className='navbar-toggle'>
-//               <Link to='#' className='menu-bars'>
-//               <CloseCircleOutlined />
-//             </Link>
-//             </li>
-            
-//             {sidenav.map((item, index) => {
-//               return (
-//                 <li key={index} className={item.cName}>
-//                   <Link to={item.path}>
-//                     {item.icon}
-//                     <span>{item.name}</span>
-//                   </Link>
-//                 </li>
-//               );
-//             })}
-//           </ul>
-//         </nav>
-      
-//     </>
-//   );
-// }
-
-// export default Navbar;

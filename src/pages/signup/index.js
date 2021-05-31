@@ -1,11 +1,12 @@
 import React, { useState } from "react"
 import InputForm from "../../Component/form"
-import { Card } from "antd"
+import { Card,  Container } from "react-bootstrap"
 import logo from "../../assets/logo_1.png"
 import background from "../../assets/img-17.jpg"
 import "../index.css"
+import "../Login.css"
 import "../layout.css"
-import { Form} from "antd"
+import { Form } from "antd"
 import { navigate } from "gatsby-link"
 let form_data = [
   {
@@ -34,6 +35,7 @@ let form_data = [
       },
     ],
   },
+
   {
     label: "CONFIRM PASSWORD",
     name: "confirm_password",
@@ -55,12 +57,14 @@ let form_data = [
 ]
 
 export default function SigUp() {
-  
   const [error, setError] = useState(false)
 
   const onFinish = values => {
     console.log("Success:", values)
-    if (values.password.length >= 6 && values.password===values.confirm_password ){
+    if (
+      values.password.length >= 6 &&
+      values.password === values.confirm_password
+    ) {
       navigate("/home")
       setError(false)
     } else {
@@ -82,34 +86,11 @@ export default function SigUp() {
   return (
     <div className="auth-container ">
       <div style={backgroundStyle}>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "100%",
-          }}
-        >
-          <Card
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              margin: "10px auto",
-              height: "95%",
-              flexBasis: "29%",
-              borderRadius: "10px",
-              }}
-          >
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                marginBottom: "20px",
-              }}
-              className="login_logo"
-            >
+      <Container className="d-flex align-items-center justify-content-center"
+    style={{ minHeight: "100vh" }}>
+       <div  style={{ maxWidth: "400px" }}>
+          <Card className="p-4" style={{borderRadius:"10PX"}}>
+           <div className="login_logo">
               <img src={logo} alt="logo" width="180px" height="90px" />
             </div>
             <Form
@@ -123,9 +104,11 @@ export default function SigUp() {
               ))}
               {error && (
                 <p style={{ color: "red", padding: "2px" }}>
-                password and confirm password should match
+                password should be minimum 6
+                  characters long
                 </p>
               )}
+              
 
               <p style={{ textAlign: "center" }}>
                 In case of any issues, please contact
@@ -133,8 +116,11 @@ export default function SigUp() {
               </p>
             </Form>
           </Card>
+          </div>
+          </Container>
         </div>
       </div>
-    </div>
+    
+  
   )
 }

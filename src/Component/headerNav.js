@@ -35,23 +35,8 @@ export default function HeaderNav() {
           </button>
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mr-auto">
-              <li className="nav-item" style={{ marginLeft: "50px" }}>
-                <a className="nav-link" href="#">
-                  <button className="btn btn-outline-secondary">
-                    EQUIPMENT DROP-OFF
-                  </button>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  <button className="btn btn-outline-secondary">
-                    EQUIPMENT PICK-UP
-                  </button>
-                </a>
-              </li>
-            </ul>
-            <ul className="navbar-nav">
+           
+            <ul className="navbar-nav ml-auto">
               <li className="nav-item active">
                 <a className="nav-link" href="#">
                   <span>Alex Brown</span>

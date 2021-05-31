@@ -4,10 +4,11 @@ import { Card,  Container } from "react-bootstrap"
 import logo from "../../assets/logo_1.png"
 import background from "../../assets/img-17.jpg"
 import "../index.css"
-import "../Login.css"
-import "../layout.css"
+// import "../Login.css"
+// import "../layout.css"
 import { Form } from "antd"
 import { navigate } from "gatsby-link"
+import { Link } from "gatsby"
 let form_data = [
   {
     label: "USER ID",
@@ -61,6 +62,7 @@ export default function SigUp() {
 
   const onFinish = values => {
     console.log("Success:", values)
+    
     if (
       values.password.length >= 6 &&
       values.password === values.confirm_password
@@ -108,7 +110,10 @@ export default function SigUp() {
                   characters long
                 </p>
               )}
-              
+                <Link to="/">
+                <p style={{ textAlign: "center" }}>
+               Already have an account ? click here to Sign in</p>
+              </Link>
 
               <p style={{ textAlign: "center" }}>
                 In case of any issues, please contact

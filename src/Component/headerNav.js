@@ -8,7 +8,7 @@ import NavProfile from "./logoutPopUp"
 export default function HeaderNav() {
   const[show,setShow]=useState(false)
   function handleClick() {
-    setShow(true)
+    setShow(!show)
   }
 
   return (

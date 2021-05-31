@@ -78,7 +78,7 @@ export default function SignIn() {
       <div style={backgroundStyle}>
       <Container className="d-flex align-items-center justify-content-center"
     style={{ minHeight: "100vh" }}>
-       <div  style={{ maxWidth: "400px" }}>
+       <div  style={{ maxWidth: "374px" }}>
           <Card className="p-4" style={{borderRadius:"10PX"}}>
            <div className="login_logo">
               <img src={logo} alt="logo" width="180px" height="90px" />
